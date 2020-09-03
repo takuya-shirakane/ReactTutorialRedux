@@ -7,27 +7,27 @@ const historyReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD:
       const { historyBack, squares } = action;
-      return [...historyBack, { squares }];
+      return [...historyBack, { squares }]; // ES6の書き方するとスマートに見えます
     default:
-      return state;
+      return state; // throw new Error() => return state へ
   }
 };
 
 const stepNumberReducer = (state = 0, action) => {
   switch (action.type) {
-    case CHANGE_NUMBER:
+    case CHANGE_NUMBER: // "add"と"jump" を1つにし、dispatchする側で値を指定
       return action.stepNumber;
     default:
-      return state;
+      return state; // throw new Error() => return state へ
   }
 };
 
 const xIsNextReducer = (state = true, action) => {
   switch (action.type) {
-    case CHANGE:
+    case CHANGE: // "change"と"jump" を1つにし、dispatchする側で値を指定
       return action.xIsNext;
     default:
-      return state;
+      return state; // throw new Error() => return state へ
   }
 };
 
